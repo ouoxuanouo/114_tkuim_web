@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>魏廷軒｜個人作品集 Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    .card-hover { transition: transform .2s ease, box-shadow .2s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.1); }
+    body { padding-top: 4.5rem; }
+    .hero { background: linear-gradient(180deg, rgba(13,110,253,.08), rgba(255,255,255,1)); }
+    .avatar { width: 240px; height: 240px; object-fit: cover; object-position: center; }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav">
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#home">我的網頁</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#home">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">關於</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">作品</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">聯絡</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero py-5">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-3">嗨，我是魏廷軒</h1>
+          <p class="lead text-secondary mb-4">淡江大學資訊管理學系｜大學三年級。</p>
+          <div class="d-flex gap-3">
+            <a href="#portfolio" class="btn btn-primary btn-lg"><i class="bi bi-collection me-1"></i>查看作品</a>
+            <a href="#about" class="btn btn-outline-primary btn-lg"><i class="bi bi-person-lines-fill me-1"></i>更多關於我</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="f41d1e4f6ed6766648e89ebeb22a3d3a.jpg" alt="魏廷軒的個人照片" class="img-fluid rounded-circle shadow avatar" />
+        </div>
+      </div>
+      <div class="alert alert-info mt-4" role="alert">
+        <i class="bi bi-info-circle me-2"></i>本頁以 Bootstrap 5 製作，支援手機、平板與桌機的 RWD。
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-md-4 text-center">
+          <img src="f41d1e4f6ed6766648e89ebeb22a3d3a.jpg" alt="魏廷軒頭像" class="img-fluid rounded-circle shadow-sm avatar" />
+        </div>
+        <div class="col-md-8">
+          <h2 class="fw-bold mb-3">關於我</h2>
+          <p class="text-secondary fs-5 mb-2">我目前就讀於 <span class="fw-semibold">淡江大學 資訊管理學系</span>，同時為<span class="fw-semibold">大學三年級</span>。</p>
+          <p class="mb-3">我喜歡將課堂所學應用在實作上，打造出好用、好看的網頁。課外時間喜歡打羽球放鬆、聽音樂，也會玩遊戲。</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="border rounded p-3 h-100">
+                <div class="small text-uppercase text-muted mb-1">興趣嗜好</div>
+                <ul class="mb-0">
+                  <li>打羽球</li>
+                  <li>玩遊戲</li>
+                  <li>聽音樂</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="border rounded p-3 h-100">
+                <div class="small text-uppercase text-muted mb-1">學習經歷</div>
+                <ul class="mb-0">
+                  <li>2018–2021｜北科附工 電子科</li>
+                  <li>2021–至今｜淡江大學 資訊管理學系</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0">本學期目標：<span class="badge text-bg-primary">通過本課並取得學分</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="py-5 bg-light">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between mb-4">
+        <h2 class="fw-bold mb-0">技能展示</h2>
+        <span class="text-muted">以徽章與進度條呈現熟悉度</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <i class="bi bi-filetype-html fs-2 me-2"></i>
+                <h5 class="card-title mb-0">HTML & CSS</h5>
+              </div>
+              <p class="card-text">具備語意化標記觀念，能以 Bootstrap 5 快速建立 RWD 版面並加入自訂樣式。</p>
+              <span class="badge text-bg-success me-2">熟練</span>
+              <div class="progress mt-2" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 80%">80%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <i class="bi bi-filetype-js fs-2 me-2"></i>
+                <h5 class="card-title mb-0">JavaScript</h5>
+              </div>
+              <p class="card-text">能撰寫基本互動效果與 DOM 操作，整合元件與表單驗證邏輯。</p>
+              <span class="badge text-bg-primary me-2">進階中</span>
+              <div class="progress mt-2" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 65%">65%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <i class="bi bi-cpu fs-2 me-2"></i>
+                <h5 class="card-title mb-0">資訊應用</h5>
+              </div>
+              <p class="card-text">具備基礎資料處理與系統觀念，能與團隊協作完成課程專題。</p>
+              <span class="badge text-bg-secondary me-2">穩定</span>
+              <div class="progress mt-2" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 70%">70%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="fw-bold mb-4">作品集</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 card-hover">
+            <img src="下載.jpg" class="card-img-top img-fluid" alt="作品一縮圖" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">RWD 個人首頁</h5>
+              <p class="card-text flex-grow-1">以 Bootstrap 5 製作的個人首頁設計，著重版面排版與字體階層。</p>
+              <a href="#" class="btn btn-outline-primary mt-2"><i class="bi bi-box-arrow-up-right me-1"></i>查看詳情</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 card-hover">
+            <img src="0b4e58b62bd0467599c3cbbe69c2ed31.jpg" class="card-img-top img-fluid" alt="作品二縮圖" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">互動小工具</h5>
+              <p class="card-text flex-grow-1">以 JavaScript 製作的簡易互動元件，練習事件處理與 DOM 操作。</p>
+              <a href="#" class="btn btn-outline-primary mt-2"><i class="bi bi-box-arrow-up-right me-1"></i>查看詳情</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 card-hover">
+            <img src="images.jpg" class="card-img-top img-fluid" alt="作品三縮圖" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">課程專題頁</h5>
+              <p class="card-text flex-grow-1">以團隊合作完成的課程專題頁面，整合排版、圖片與敘事內容。</p>
+              <a href="#" class="btn btn-outline-primary mt-2"><i class="bi bi-box-arrow-up-right me-1"></i>查看詳情</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="fw-bold mb-4">聯絡我</h2>
+      <div class="row">
+        <div class="col-lg-7">
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">姓名</label>
+              <input type="text" class="form-control" id="name" placeholder="請輸入您的姓名" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">主旨</label>
+              <input type="text" class="form-control" id="subject" placeholder="想聊聊什麼主題？" />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">訊息</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="請輸入訊息..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">送出</button>
+          </form>
+        </div>
+        <div class="col-lg-5">
+          <div class="ps-lg-4 mt-4 mt-lg-0">
+            <div class="d-flex align-items-center mb-2"><i class="bi bi-envelope me-2"></i><a href="mailto:413637397@o365.tku.edu.tw">413637397@o365.tku.edu.tw</a></div>
+            <div class="d-flex align-items-center mb-2"><i class="bi bi-link-45deg me-2"></i><a href="https://www.tku.edu.tw" target="_blank" rel="noopener">淡江大學官網</a></div>
+            <div class="d-flex align-items-center text-muted small mt-3"><i class="bi bi-shield-check me-2"></i>此表單為示意用途，未串接後端。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <div class="mb-3">
+      <!-- Email -->
+      <a class="text-white me-3"
+         href="https://mail.google.com/"
+         aria-label="Email"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="bi bi-envelope fs-4"></i>
+      </a>
+
+      <!-- GitHub -->
+      <a class="text-white me-3"
+         href="https://github.com"
+         aria-label="GitHub"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="bi bi-github fs-4"></i>
+      </a>
+
+      <!-- Instagram -->
+      <a class="text-white"
+         href="https://www.instagram.com"
+         aria-label="Instagram"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="bi bi-instagram fs-4"></i>
+      </a>
+    </div>
+
+    <div class="small">© <span id="year"></span> Wei Ting-Xuan. All rights reserved.</div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 表單送出後顯示提示框
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      if(name) {
+        alert('感謝 ' + name + '，您的訊息已成功送出！');
+        this.reset();
+      } else {
+        alert('請輸入姓名再送出表單。');
+      }
+    });
+  </script>
+</body>
+</html>
