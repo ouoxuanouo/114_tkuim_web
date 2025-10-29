@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>會員註冊表單</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>會員註冊</h1>
+
+    <form id="signup-form" novalidate aria-describedby="form-error">
+      <div class="field">
+        <label for="name">姓名 <span class="req">*</span></label>
+        <input id="name" name="name" type="text" required aria-describedby="err-name" />
+        <p id="err-name" class="error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <input id="email" name="email" type="email" required aria-describedby="err-email" />
+        <p id="err-email" class="error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="phone">手機（10 碼數字）<span class="req">*</span></label>
+        <input id="phone" name="phone" type="tel" inputmode="numeric"
+       pattern="^09\d{8}$" required aria-describedby="err-phone">
+        <p id="err-phone" class="error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="password">密碼（至少 8 碼，英數混合）<span class="req">*</span></label>
+        <input id="password" name="password" type="password" minlength="8" required aria-describedby="hint-password err-password strength-label" />
+        <p id="hint-password" class="hint">需同時包含英文字母與數字，至少 8 碼。</p>
+        <div class="strength">
+          <div id="strength-bar" class="bar"></div>
+          <span id="strength-label" class="label">強度：—</span>
+        </div>
+        <p id="err-password" class="error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="confirm">確認密碼 <span class="req">*</span></label>
+        <input id="confirm" name="confirm" type="password" required aria-describedby="err-confirm" />
+        <p id="err-confirm" class="error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <fieldset class="field">
+        <legend>興趣標籤（至少勾 1 項）<span class="req">*</span></legend>
+        <div id="interests" class="tags" aria-describedby="err-interests">
+          <label class="tag"><input type="checkbox" value="閱讀" />閱讀</label>
+          <label class="tag"><input type="checkbox" value="運動" />運動</label>
+          <label class="tag"><input type="checkbox" value="旅遊" />旅遊</label>
+          <label class="tag"><input type="checkbox" value="美食" />美食</label>
+          <label class="tag"><input type="checkbox" value="音樂" />音樂</label>
+          <label class="tag"><input type="checkbox" value="電影" />電影</label>
+        </div>
+        <p id="err-interests" class="error" role="alert" aria-live="polite"></p>
+      </fieldset>
+
+      <div class="field inline">
+        <label class="checkbox">
+          <input id="terms" type="checkbox" required aria-describedby="err-terms" />
+          我已閱讀並同意服務條款
+        </label>
+        <p id="err-terms" class="error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="actions">
+        <button id="submitBtn" type="submit" class="btn primary">送出</button>
+        <button id="resetBtn" type="button" class="btn">重設</button>
+      </div>
+
+      <p id="form-error" class="visually-hidden" aria-live="polite"></p>
+      <div id="result" class="result" role="status" aria-live="polite"></div>
+    </form>
+  </main>
+  <script src="signup_form.js" defer></script>
+</body>
+</html>
