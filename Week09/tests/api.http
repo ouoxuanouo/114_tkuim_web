@@ -1,0 +1,36 @@
+### 健康檢查
+GET http://localhost:3001/health
+
+### 建立報名成功
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "phone": "0912345678",
+  "password": "demoPass88",
+  "confirmPassword": "demoPass88",
+  "interests": ["後端入門"],
+  "terms": true
+}
+
+### 表單錯誤：手機格式錯誤
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "Bad Phone",
+  "email": "bad@example.com",
+  "phone": "123456",
+  "password": "demoPass88",
+  "confirmPassword": "demoPass88",
+  "interests": ["後端入門"],
+  "terms": true
+}
+
+### 取得目前報名清單
+GET http://localhost:3001/api/signup
+
+### 刪除（取消報名）請把 :id 換成上面 GET 回傳的某一個 id
+DELETE http://localhost:3001/api/signup/PUT_ID_HERE

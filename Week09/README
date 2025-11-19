@@ -1,0 +1,23 @@
+# Week09 - Signup API Lab
+
+## 專案結構
+
+- `client/`：前端報名表單（HTML + JS）
+- `server/`：Node.js / Express 後端 API
+- `tests/`：API 測試腳本（REST Client / Postman）
+
+## 環境需求
+
+- Node.js 18+
+- npm
+- 建議安裝 VS Code REST Client 外掛
+- Postman（選用）
+
+## 安裝與啟動
+
+### 後端
+
+```bash
+cd server
+npm install
+npm run dev
