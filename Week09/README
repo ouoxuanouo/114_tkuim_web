@@ -1,23 +1,65 @@
-# Week09 - Signup API Lab
-
-## 專案結構
-
-- `client/`：前端報名表單（HTML + JS）
-- `server/`：Node.js / Express 後端 API
-- `tests/`：API 測試腳本（REST Client / Postman）
-
-## 環境需求
-
-- Node.js 18+
-- npm
-- 建議安裝 VS Code REST Client 外掛
-- Postman（選用）
-
-## 安裝與啟動
-
-### 後端
-
-```bash
+# Week09 Lab — 報名 API + 前後端串接 本週 Lab 目標是將 Week07 的前端報名表單送入後端伺服器，建立可驗證、可查詢的報名 API，並透過 REST Client / Postman 進行測試。 --- # 專案架構
+week09lab/
+  client/
+    signup_form.html
+    signup_form.js
+  server/
+    app.js
+    routes/
+      signup.js
+    package.json
+    .env
+  tests/
+    api.http
+    signup_collection.json
+  README.md
+--- # 使用技術 - Node.js + Express（建立 API） - JavaScript（前端表單行為） - Bootstrap（部分 UI） - REST Client（VS Code） - Postman（API 測試） --- # 安裝與啟動步驟 ## 後端（server）
+bash
 cd server
 npm install
 npm run dev
+成功後會看到：
+Server ready on http://localhost:3001
+--- ## 前端（client） 使用 VS Code Live Server 開啟：
+client/signup_form.html
+或直接雙擊 HTML 開啟瀏覽器也可。 --- # 後端 API 文件 ## GET /health 檢查伺服器運作。 **回應：**
+json
+{ "status": "ok" }
+--- ## POST /api/signup 建立一筆報名資料。 ### Request Body（JSON）
+json
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "phone": "0912345678",
+  "password": "demoPass88",
+  "confirmPassword": "demoPass88",
+  "interests": ["後端入門"],
+  "terms": true
+}
+### 成功（201 Created）
+json
+{
+  "message": "報名成功",
+  "participant": {
+    "id": "xxxxxxx",
+    "name": "Test User",
+    "email": "test@example.com",
+    "phone": "0912345678",
+    "interests": ["後端入門"],
+    "createdAt": "2025-11-19T..."
+  }
+}
+### 錯誤（400 Bad Request）
+json
+{ "error": "錯誤訊息" }
+--- ## GET /api/signup 取得目前所有報名資料。
+json
+{
+  "total": 1,
+  "data": [ ... ]
+}
+--- ## DELETE /api/signup/:id（選用） 刪除某位報名者（如果有實作）。 --- # 前端功能 client/signup_form.js 負責： - 表單送出 (fetch POST /api/signup) - 顯示成功或失敗訊息 - Loading 狀態／避免重複送出 - 查看報名清單（GET /api/signup） --- # API 測試方式 本專案提供兩種測試方式，符合課程要求： ## 方式一：VS Code REST Client 開啟：
+tests/api.http
+依序測試： - GET /health - POST /api/signup（成功案例） - POST /api/signup（錯誤案例） - GET /api/signup --- ## 方式二：Postman（可選） 匯入：
+tests/signup_collection.json
+可測試： - 健康檢查 - 報名成功 - 報名錯誤 - 查詢報名清單 ---
