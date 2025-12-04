@@ -1,0 +1,27 @@
+### Health
+GET http://localhost:3001/health
+
+### Create
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "phone": "0912345678",
+  "course": "Week11"
+}
+
+### Duplicate Email
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "Another",
+  "email": "test@example.com",
+  "phone": "0988888888",
+  "course": "Course"
+}
+
+### Pagination
+GET http://localhost:3001/api/signup?page=1&limit=5
