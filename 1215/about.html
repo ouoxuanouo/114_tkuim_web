@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AntiGravity — About</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="./index.html">
+      <span class="brand-dot"></span>
+      <span>AntiGravity</span>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link active" href="./about.html">About</a>
+      <button
+        id="toggleMotion"
+        class="btn ghost"
+        type="button"
+        aria-pressed="false"
+      >
+        Motion: On
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="hero glass tilt" data-tilt>
+      <p class="pill">design system • motion logic • UI philosophy</p>
+
+      <h1 class="title">
+        Anti-Gravity  
+        <span class="grad">設計思維</span>
+      </h1>
+
+      <p class="subtitle">
+        這套設計不是為了炫技，
+        而是嘗試回答一個問題：
+        「介面，是否能脫離平面思考？」
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="./index.html">返回首頁</a>
+        <button
+          class="btn primary"
+          id="scrollCTA"
+          type="button"
+        >
+          查看核心元件
+        </button>
+      </div>
+    </section>
+
+    <section class="grid" id="components">
+      <article class="card glass float">
+        <h3>Hero & Call To Action</h3>
+        <p>
+          強烈但乾淨的視覺主標，
+          搭配明確的行動按鈕，
+          讓使用者在第一秒理解網站價值。
+        </p>
+      </article>
+
+      <article class="card glass float">
+        <h3>Floating Information Cards</h3>
+        <p>
+          將內容拆解為獨立漂浮模組，
+          每張卡片都是一個可單獨閱讀的敘事單位。
+        </p>
+      </article>
+
+      <article class="card glass float">
+        <h3>Motion Control & Accessibility</h3>
+        <p>
+          提供動畫開關，
+          尊重使用者對動態效果的偏好，
+          在美感與可用性之間取得平衡。
+        </p>
+      </article>
+    </section>
+
+    <section class="panel glass">
+      <h2 class="section-title">快速客製化指南</h2>
+      <ol class="list">
+        <li>調整 <code>--hue</code> 即可快速切換整體色系。</li>
+        <li>增加背景光球可強化空間感，但需留意效能。</li>
+        <li>文案建議使用短句與抽象語彙，維持 anti-gravity 氛圍。</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> AntiGravity UI</span>
+    <span class="sep">•</span>
+    <a class="footer-link" href="./index.html">Home</a>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

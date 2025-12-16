@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AntiGravity — Home</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="./index.html">
+      <span class="brand-dot"></span>
+      <span>AntiGravity</span>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link active" href="./index.html">Home</a>
+      <a class="nav-link" href="./about.html">About</a>
+      <button
+        id="toggleMotion"
+        class="btn ghost"
+        type="button"
+        aria-pressed="false"
+      >
+        Motion: On
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="hero glass tilt" data-tilt>
+      <p class="pill">anti-gravity UI • floating design • neon glass</p>
+
+      <h1 class="title">
+        設計，不必受重力限制  
+        <span class="grad">UI 也能漂浮</span>
+      </h1>
+
+      <p class="subtitle">
+        結合霓虹漸層、玻璃擬態與微動態互動，
+        打造一種彷彿置身失重空間的操作體驗。
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="./about.html">探索設計概念</a>
+        <button
+          class="btn"
+          id="spawn"
+          type="button"
+        >
+          生成漂浮模組
+        </button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num" id="fps">—</div>
+          <div class="stat-label">即時粒子渲染</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="cardsCount">3</div>
+          <div class="stat-label">動態模組數量</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">頁面架構</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card glass float">
+        <h3>Anti-Gravity Visual System</h3>
+        <p>
+          介面不再只是平面堆疊，
+          而是像懸浮於空間中的視覺模組，
+          建立更具層次感的閱讀節奏。
+        </p>
+        <div class="tags">
+          <span class="tag">floating</span>
+          <span class="tag">glass</span>
+          <span class="tag">neon</span>
+        </div>
+      </article>
+
+      <article class="card glass float">
+        <h3>Subtle Motion Interaction</h3>
+        <p>
+          滑鼠移動時的輕微傾斜與漂浮動畫，
+          創造剛剛好的動態回饋，
+          不干擾，卻足夠迷人。
+        </p>
+        <div class="tags">
+          <span class="tag">motion</span>
+          <span class="tag">tilt</span>
+          <span class="tag">interaction</span>
+        </div>
+      </article>
+
+      <article class="card glass float">
+        <h3>Designed to Scale</h3>
+        <p>
+          這不只是一頁展示，
+          而是一套可延伸的前端視覺語言，
+          能持續成長為完整網站或作品集。
+        </p>
+        <div class="tags">
+          <span class="tag">system</span>
+          <span class="tag">scalable</span>
+          <span class="tag">future</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel glass">
+      <h2 class="section-title">Visual Control</h2>
+      <div class="row">
+        <label class="switch">
+          <input id="reduceGlow" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <div>
+          <div class="row-title">降低視覺發光強度</div>
+          <div class="row-desc">
+            若希望風格更偏理性或商務呈現，
+            可減少霓虹與發光效果。
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> AntiGravity UI</span>
+    <span class="sep">•</span>
+    <a class="footer-link" href="./about.html">About</a>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
