@@ -1,0 +1,94 @@
+### Health
+GET http://localhost:3001/health
+
+### Signup student
+POST http://localhost:3001/auth/signup
+Content-Type: application/json
+
+{
+  "email": "student12@example.com",
+  "password": "pass1234"
+}
+
+### Login student (get access + refresh)
+# @name loginStudent
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+  "email": "student12@example.com",
+  "password": "pass1234"
+}
+
+### Unauthorized access should be 401
+GET http://localhost:3001/api/signup
+
+### Student create participant
+# @name createP
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+Authorization: Bearer {{loginStudent.response.body.token}}
+
+{
+  "name": "小明 Week12",
+  "email": "student12@example.com",
+  "phone": "0912345678"
+}
+
+### Student list (only own)
+GET http://localhost:3001/api/signup
+Authorization: Bearer {{loginStudent.response.body.token}}
+
+### Refresh access token using refreshToken (bonus)
+# @name refreshStudent
+POST http://localhost:3001/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{loginStudent.response.body.refreshToken}}"
+}
+
+### Forgot password (bonus) - demo returns resetToken
+# @name forgot
+POST http://localhost:3001/auth/forgot
+Content-Type: application/json
+
+{
+  "email": "student12@example.com"
+}
+
+### Reset password (bonus)
+POST http://localhost:3001/auth/reset
+Content-Type: application/json
+
+{
+  "resetToken": "{{forgot.response.body.resetToken}}",
+  "newPassword": "newpass123"
+}
+
+### Login with new password (bonus validation)
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+  "email": "student12@example.com",
+  "password": "newpass123"
+}
+
+### Login admin
+# @name loginAdmin
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin1234"
+}
+
+### Admin list all
+GET http://localhost:3001/api/signup
+Authorization: Bearer {{loginAdmin.response.body.token}}
+
+### Admin audit logs (bonus)
+GET http://localhost:3001/admin/audit-logs
+Authorization: Bearer {{loginAdmin.response.body.token}}

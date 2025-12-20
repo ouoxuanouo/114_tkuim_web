@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Week12_LAB Final</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial;padding:16px;max-width:900px;margin:0 auto}
+    input,button{padding:10px;margin:6px 0}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .card{border:1px solid #ddd;border-radius:12px;padding:12px;flex:1;min-width:280px}
+    .muted{color:#666}
+    .error{color:#b00020}
+    code{background:#f6f6f6;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <h1>Week12（最終版）</h1>
+  <p class="muted">建議用 <code>tests/api.http</code> 走完整驗收流程；此頁提供最基本的登入與列表。</p>
+
+  <div class="row">
+    <div class="card">
+      <h2>登入</h2>
+      <div id="status" class="muted"></div>
+      <div id="err" class="error"></div>
+      <div>
+        <input id="email" placeholder="email" />
+      </div>
+      <div>
+        <input id="password" placeholder="password" type="password" />
+      </div>
+      <button id="loginBtn">Login</button>
+      <button id="refreshBtn">Refresh Token</button>
+      <button id="logoutBtn">Logout</button>
+    </div>
+
+    <div class="card">
+      <h2>我的報名資料</h2>
+      <button id="loadBtn">Load</button>
+      <ul id="list"></ul>
+    </div>
+  </div>
+
+<script>
+const API='http://localhost:3001';
+const statusEl=document.getElementById('status');
+const errEl=document.getElementById('err');
+const listEl=document.getElementById('list');
+
+function setStatus(){
+  const u=localStorage.getItem('user');
+  statusEl.textContent = u ? ('Logged in: '+JSON.parse(u).email+' role='+JSON.parse(u).role) : 'Not logged in';
+}
+setStatus();
+
+async function jsonOrNull(r){ try{return await r.json()}catch{return null} }
+
+document.getElementById('loginBtn').onclick=async()=>{
+  errEl.textContent='';
+  const email=document.getElementById('email').value.trim();
+  const password=document.getElementById('password').value;
+  const r=await fetch(API+'/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+  const d=await jsonOrNull(r);
+  if(!r.ok){ errEl.textContent=d?.error||('HTTP '+r.status); return; }
+  localStorage.setItem('token',d.token);
+  localStorage.setItem('refreshToken',d.refreshToken);
+  localStorage.setItem('user',JSON.stringify(d.user));
+  setStatus();
+};
+
+document.getElementById('refreshBtn').onclick=async()=>{
+  errEl.textContent='';
+  const refreshToken=localStorage.getItem('refreshToken');
+  if(!refreshToken){ errEl.textContent='No refreshToken'; return; }
+  const r=await fetch(API+'/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken})});
+  const d=await jsonOrNull(r);
+  if(!r.ok){ errEl.textContent=d?.error||('HTTP '+r.status); localStorage.clear(); setStatus(); return; }
+  localStorage.setItem('token',d.token);
+  localStorage.setItem('user',JSON.stringify(d.user));
+  setStatus();
+};
+
+document.getElementById('logoutBtn').onclick=async()=>{
+  const refreshToken=localStorage.getItem('refreshToken');
+  if(refreshToken){
+    await fetch(API+'/auth/logout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken})});
+  }
+  localStorage.clear();
+  listEl.innerHTML='';
+  setStatus();
+};
+
+document.getElementById('loadBtn').onclick=async()=>{
+  errEl.textContent='';
+  listEl.innerHTML='';
+  const token=localStorage.getItem('token');
+  if(!token){ errEl.textContent='請先登入'; return; }
+  const r=await fetch(API+'/api/signup',{headers:{Authorization:'Bearer '+token}});
+  const d=await jsonOrNull(r);
+  if(!r.ok){
+    errEl.textContent=d?.error||('HTTP '+r.status);
+    if(r.status===401){ localStorage.clear(); setStatus(); }
+    return;
+  }
+  (d.data||[]).forEach(x=>{
+    const li=document.createElement('li');
+    li.textContent=`${x.name} (${x.email}, ${x.phone}) ownerId=${x.ownerId}`;
+    listEl.appendChild(li);
+  });
+};
+</script>
+</body>
+</html>
